@@ -51,8 +51,18 @@ void write_binary_file(City cities[], int size, char* filename){
 }
 
 void print_from_binary(char* filename) {
-    /* Studnets must complete the implementaiton of this file. */
+    ifstream input (filename, ios::in | ios::binary);
+    if(input.fail()){
+        cerr << "Failed to open file." << endl;
+        exit(1);
+    }
+    while(!input.eof()){
+        City city;
+        input.read((char*)(&city), sizeof(City));
+        cout << "Name: " << city.name << ", x coordinate: " << city.x << ", y coordinate: " << city.y << endl;
+    }
 
+    input.close();
 }
 
 
