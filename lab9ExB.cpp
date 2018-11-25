@@ -59,6 +59,8 @@ void print_from_binary(char* filename) {
     while(!input.eof()){
         City city;
         input.read((char*)(&city), sizeof(City));
+        if(input.eof())
+            break;
         cout << "Name: " << city.name << ", x coordinate: " << city.x << ", y coordinate: " << city.y << endl;
     }
 
