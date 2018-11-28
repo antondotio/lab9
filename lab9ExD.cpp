@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 using namespace std;
 
 void insertion_sort(int *int_array, int n);
@@ -52,7 +53,7 @@ int main(void)
     cout << "Here is your array of ints after sorting:  \n" ;
     for(i = 0; i < n_elements; i++)
         cout << a[i] << endl;
-#if 0
+#if 1
     const char* strings[] = { "Red", "Blue", "pink","apple", "almond","white",
                                                "nut", "Law", "cup"};
     
@@ -94,4 +95,22 @@ void insertion_sort(int *a, int n)
         
         a[j] = value_to_insert;
     }
+}
+void insertion_sort(const char** s, int n){
+    int i;
+    int j;
+    const char* word_to_insert;
+
+    for(i = 1; i < n; i++){
+        word_to_insert = s[i];
+
+        j = i;
+        while( j > 0 && strcmp(s[j - 1], word_to_insert) > 0 ){
+            s[j] = s[j - 1];
+            j--;
+        }
+
+        s[j] = word_to_insert;
+    }
+
 }
