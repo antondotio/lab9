@@ -55,17 +55,25 @@ double Matrix::get_sum_row(int i) const
 
 void Matrix::sum_of_rows()const
 {
-   
-    // COMMENT OUT THE FOLLOWING LINE AND COMPLETE THE DEFINITION OF THIS FUNCTION
-    cout << "\nSorry I don't know how to calculate sum of rowsM in a matrix. ";
+    int i, j;
+    for(i = 0; i < rowsM; i++){
+        sum_rowsM[i] = 0;
+        for(j = 0; j < colsM; j++){
+            sum_rowsM[i] += matrixM[i][j];
+        }
+    }
 
 }
 
 void Matrix::sum_of_cols()const
 {
-    // COMMENT OUT THE FOLLOWING LINE AND COMPLETE THE DEFINITION OF THIS FUNCTION
-    cout << "\nSorry I don't know how to calculate sum of columns in a matrix. ";
-    
+    int i, j;
+    for(i = 0; i < colsM; i++){
+        sum_colsM[i] = 0;
+        for(j = 0; j < rowsM; j++){
+            sum_colsM[i] += matrixM[j][i];
+        }
+    }
 }
 
 void Matrix::copy(const Matrix& source)
@@ -96,14 +104,24 @@ void Matrix::copy(const Matrix& source)
         matrixM[i] = new double[colsM];
         assert(matrixM[i] != NULL);
     }
-    // STUDENTS MUST COMMENT OUT THE FOLLOWING LINE AND FIX THE FUNCTION'S PROBLEM
-    cout << "\nSorry copy fucntion is defective. ";
+    
+    for(int i = 0; i < rowsM; i++){
+        for(int j = 0; j < colsM; j++){
+            matrixM[i][j] = source.matrixM[i][j];
+        }
+    }
+    for(int i = 0; i < rowsM; i++)
+        sum_rowsM[i] = source.sum_rowsM[i];
+    for(int j = 0; j < colsM; j++)
+        sum_colsM[j] = source.sum_colsM[j];
 }
 
     
 
 void Matrix::destroy()
 {
-    // COMMENT OUT THE FOLLOWING LINE AND COMPLETE THE DEFINITION OF THIS FUNCTION
-    cout << "\nProgram ended without destroying matrices.\n";
+    for(int i = 0; i < rowsM; i++){
+        delete [] matrixM[i];
+    }
+    delete [] matrixM;
 }
