@@ -58,12 +58,12 @@ int main() {
 String_Vector transpose (const String_Vector& sv) {
     String_Vector vs;
     vs.resize(sv.at(0).size());
-    for(int j = 0; j < vs.size(); j++){
+    for(int j = 0; j < (int)vs.size(); j++){
         vs.at(j).resize(sv.size());
     }
 
-    for(int i = 0; i < sv.size(); i++){
-        for(int j = 0; j < sv.at(0).size(); j++){
+    for(int i = 0; i < (int)sv.size(); i++){
+        for(int j = 0; j < (int)sv.at(0).size(); j++){
             vs.at(j).at(i) = sv.at(i).at(j);
         }
     }

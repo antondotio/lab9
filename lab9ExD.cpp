@@ -3,24 +3,7 @@
 using namespace std;
 
 void insertion_sort(int *int_array, int n);
-/* REQUIRES
- *    n > 0. 
- *    Array elements int_array[0] ... int_array[n - 1] exist.
- * PROMISES
- *    Element values are rearranged in non-decreasing order.
- */
-
 void insertion_sort(const char** str_array, int n);
-
-/* REQUIRES
- *   n > 0.
- *   Array elements str_array[0] ... str_array[n - 1] exist.
- * PROMISES
- *   pointers in str_array are rearranged so that strings:
- *   str_array[0] points to a string with the smallest string (lexicographicall) ,
- *   str_array[1] points to the second smallest string, ..., str_array[n-2] 
- *   points to the second largest, and str_array[n-1] points to the largest string
- */
 
 int main(void)
 {
